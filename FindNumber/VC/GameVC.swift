@@ -12,6 +12,8 @@ class GameVC: UIViewController {
     @IBOutlet var buttons: [UIButton]! //создаем IBOutlet collections(чтобы обьеденить туда 16 кнобок)
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    
     
     lazy var game = Game(countItems: buttons.count)
     

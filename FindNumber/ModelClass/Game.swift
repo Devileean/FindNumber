@@ -10,6 +10,7 @@ import Foundation
 enum StatusGame{
     case start
     case win
+    case lose
 }
 
 
@@ -29,8 +30,19 @@ class Game {
     
     var status:StatusGame = .start
     
-    init(countItems: Int) {
+    private var timeForGame: Int { //и его добавим в init (3)
+        didSet{                               //добавим проверку времени на изменения
+            if timeForGame == 0 {
+                status = .lose
+            }
+        }
+    }
+    
+    private var timer: Timer? //также нужна для запуска таймера (её запустим в функции setupGame)
+    
+    init(countItems: Int, time: Int) { // (3)
         self.countItems = countItems
+        self.timeForGame = time // (3)
         setupGame()
     }
     
@@ -44,6 +56,10 @@ class Game {
         }
         
         nextItem = items.shuffled().first //(1) для рандомного создания цифр
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (_) in // делаем weak self чтобы небыло утечек памяти
+            self?.timeForGame -= 1
+        })
     }
     
     func check(index: Int) {
@@ -51,7 +67,7 @@ class Game {
         if items[index].title == nextItem?.title {
             items[index].isFound = true
             nextItem = items.shuffled().first(where: {(item) -> Bool in
-                                                   item.isFound == false})
+                item.isFound == false})
         }
         if nextItem == nil{
             status = .win
