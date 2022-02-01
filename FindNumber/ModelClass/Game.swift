@@ -18,7 +18,8 @@ class Game {
     
     struct Item{
         var title: String
-        var isFound: Bool = false
+        var isFound = false
+        var isError = false
     }
     
     private let data = Array(1...99) //отображать числа на кнопках с помощью этого массива
@@ -73,11 +74,13 @@ class Game {
     }
     
     func check(index: Int) {
-        
+        guard status == .start else {return} //проверка статуса на прекращение игры
         if items[index].title == nextItem?.title {
             items[index].isFound = true
             nextItem = items.shuffled().first(where: {(item) -> Bool in
                 item.isFound == false})
+        } else {
+            items[index].isError = true
         }
         if nextItem == nil{
             status = .win

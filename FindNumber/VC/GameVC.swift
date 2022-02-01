@@ -49,6 +49,16 @@ class GameVC: UIViewController {
     private func updateUI() {
         for index in game.items.indices {
             buttons[index].isHidden = game.items[index].isFound
+        
+            if game.items[index].isError { // добавляем анимацию кнопки при неправильном нажатии
+                UIView.animate(withDuration: 0.3) { [weak self] in // weak self чтобы небыло утечки памяти
+                    self?.buttons[index].backgroundColor = .red // self с ? т.к. weak и  self становиться опциональным
+                } completion: { [weak self] (_) in // weak self чтобы небыло утечки памяти
+                    self?.buttons[index].backgroundColor = .systemYellow // self с ? т.к. weak и  self становиться опциональным
+                    self?.game.items[index].isError = false // self с ? т.к. weak и  self становиться опциональным
+                }
+            }
+        
         }
         nextDigit.text = game.nextItem?.title
         
