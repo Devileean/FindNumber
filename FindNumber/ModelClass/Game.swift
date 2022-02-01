@@ -42,7 +42,7 @@ class Game {
             if timeForGame == 0 {
                 status = .lose
             }
-            updateTimer(status, timeForGame)
+            updateTimer(status, timeForGame) //копируем в setupGame чтобы небыло секндной задержки (7)
         }
     }
     
@@ -64,8 +64,8 @@ class Game {
             let item = Item(title: String(digits.removeFirst()))
             items.append(item)
         }
-        
-        nextItem = items.shuffled().first //(1) для рандомного создания цифр
+        updateTimer(status, timeForGame) // (7)
+        nextItem = items.shuffled().first // (1) для рандомного создания цифр
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (_) in // делаем weak self чтобы небыло утечек памяти
             self?.timeForGame -= 1
@@ -86,4 +86,16 @@ class Game {
     private func stopGame() { // а инитить будем в stausGame
         timer?.invalidate()
     }
+}
+
+extension Int {  //создаём для более лучшего восприятия таймера
+
+    func secondToString() -> String {
+        let minutes = self / 60
+        let seconds = self % 60
+        
+        return String(format: "%d:%02d", minutes, seconds)
+        
+    }
+
 }

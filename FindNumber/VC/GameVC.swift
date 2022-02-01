@@ -17,7 +17,7 @@ class GameVC: UIViewController {
     
     lazy var game = Game(countItems: buttons.count, time: 30) { [weak self] (status, time) in
         guard let self = self else {return}
-        self.timerLabel.text = "\(time)"
+        self.timerLabel.text = time.secondToString()
         self.updateInfoGame(with: status)
     }
     
