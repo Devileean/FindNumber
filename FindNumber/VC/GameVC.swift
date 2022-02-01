@@ -15,7 +15,11 @@ class GameVC: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     
     
-    lazy var game = Game(countItems: buttons.count)
+    lazy var game = Game(countItems: buttons.count, time: 30) { [weak self] (status, time) in
+        guard let self = self else {return}
+        self.timerLabel.text = "\(time)"
+        self.updateInfoGame(with: status)
+    }
     
     
     override func viewDidLoad() {
@@ -48,9 +52,21 @@ class GameVC: UIViewController {
         }
         nextDigit.text = game.nextItem?.title
         
-        if game.status == .win {
+        updateInfoGame(with: game.status)
+    }
+    
+    private func updateInfoGame(with status: StatusGame) {//для проверки статуса игры
+    
+        switch status {
+        case .start:
+            statusLabel.text = "Игра началась"
+            statusLabel.textColor = .blue
+        case .win:
             statusLabel.text = "Вы выиграли"
             statusLabel.textColor = .green
-        }
+        case .lose:
+            statusLabel.text = "Вы проиграли"
+            statusLabel.textColor = .red
+    }
     }
 }

@@ -28,21 +28,31 @@ class Game {
     
     var nextItem: Item? // (1)
     
-    var status:StatusGame = .start
+    var status:StatusGame = .start {
+        didSet {
+            if status != .start {
+                stopGame()
+                
+            }
+        }
+    }
     
     private var timeForGame: Int { //и его добавим в init (3)
         didSet{                               //добавим проверку времени на изменения
             if timeForGame == 0 {
                 status = .lose
             }
+            updateTimer(status, timeForGame)
         }
     }
     
     private var timer: Timer? //также нужна для запуска таймера (её запустим в функции setupGame)
+    private var updateTimer:((StatusGame, Int) -> Void) // (6)
     
-    init(countItems: Int, time: Int) { // (3)
+    init(countItems: Int, time: Int, updateTimer:@escaping (_ status: StatusGame, _ seeconds: Int) -> Void) { // (3)
         self.countItems = countItems
         self.timeForGame = time // (3)
+        self.updateTimer = updateTimer //(6)
         setupGame()
     }
     
@@ -72,5 +82,8 @@ class Game {
         if nextItem == nil{
             status = .win
         }
+    }
+    private func stopGame() { // а инитить будем в stausGame
+        timer?.invalidate()
     }
 }
