@@ -38,12 +38,14 @@ class Game {
         }
     }
     
-    private var timeForGame: Int { //и его добавим в init (3)
+    private var timeForGame: Int //(10)
+    
+    private var secondsGame: Int { //и его добавим в init (3)
         didSet{                               //добавим проверку времени на изменения
-            if timeForGame == 0 {
+            if secondsGame == 0 {
                 status = .lose
             }
-            updateTimer(status, timeForGame) //копируем в setupGame чтобы небыло секндной задержки (7)
+            updateTimer(status, secondsGame) //копируем в setupGame чтобы небыло секндной задержки (7)
         }
     }
     
@@ -52,25 +54,34 @@ class Game {
     
     init(countItems: Int, time: Int, updateTimer:@escaping (_ status: StatusGame, _ seeconds: Int) -> Void) { // (3)
         self.countItems = countItems
-        self.timeForGame = time // (3)
+        self.secondsGame = time // (3)
         self.updateTimer = updateTimer //(6)
+        self.timeForGame = time // (10)
         setupGame()
     }
     
     //создадим функцию для создания items
     private func setupGame() {
         var digits = data.shuffled() //чтобы перемешивать массив(c помощью shuffled)
-        
+        items.removeAll()
         while items.count < countItems {
             let item = Item(title: String(digits.removeFirst()))
             items.append(item)
         }
-        updateTimer(status, timeForGame) // (7)
+ 
         nextItem = items.shuffled().first // (1) для рандомного создания цифр
         
+        updateTimer(status, secondsGame) // (7)
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (_) in // делаем weak self чтобы небыло утечек памяти
-            self?.timeForGame -= 1
+            self?.secondsGame -= 1
         })
+    }
+    
+    func newGame(){
+        status = .start
+        self.secondsGame = timeForGame // чтобы воставить таймер с секундами
+        setupGame()
     }
     
     func check(index: Int) {

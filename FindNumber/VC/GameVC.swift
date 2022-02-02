@@ -13,6 +13,7 @@ class GameVC: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
     
     
     lazy var game = Game(countItems: buttons.count, time: 30) { [weak self] (status, time) in
@@ -37,6 +38,13 @@ class GameVC: UIViewController {
         
         updateUI()
     }
+    
+    @IBAction func newGame(_ sender: UIButton) { //здесь будем обновлять все кнопки и статус игры
+        game.newGame()
+        sender.isHidden = true //жтобы во время ишры е] не было видно
+        setupScreen()
+    }
+    
     
     private func setupScreen() {
         for index in game.items.indices {
@@ -71,12 +79,15 @@ class GameVC: UIViewController {
         case .start:
             statusLabel.text = "Игра началась"
             statusLabel.textColor = .blue
+            newGameButton.isHidden = true//чтобы показать кнопку "новая игра"
         case .win:
             statusLabel.text = "Вы выиграли"
             statusLabel.textColor = .green
+            newGameButton.isHidden = false
         case .lose:
             statusLabel.text = "Вы проиграли"
             statusLabel.textColor = .red
+            newGameButton.isHidden = false
     }
     }
 }
