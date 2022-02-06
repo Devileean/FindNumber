@@ -49,15 +49,17 @@ class GameVC: UIViewController {
     private func setupScreen() {
         for index in game.items.indices {
             buttons[index].setTitle(game.items[index].title , for: .normal)
-            buttons[index].isHidden = false
+            buttons[index].alpha = 1 //все кнопки видны
+            buttons[index].isEnabled = true // все кнопки не нажаты
         }
         nextDigit.text = game.nextItem?.title
     }
     
     private func updateUI() {
         for index in game.items.indices {
-            buttons[index].isHidden = game.items[index].isFound
-        
+            buttons[index].alpha = game.items[index].isFound ? 0 : 1// чтобы наши констрейты не пересчитывались делаем кнопку прозрачной
+            buttons[index].isEnabled = !game.items[index].isFound //чтобы кнопка не нажималась, когда становиться прозрачной
+            
             if game.items[index].isError { // добавляем анимацию кнопки при неправильном нажатии
                 UIView.animate(withDuration: 0.3) { [weak self] in // weak self чтобы небыло утечки памяти
                     self?.buttons[index].backgroundColor = .red // self с ? т.к. weak и  self становиться опциональным
