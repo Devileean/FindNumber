@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494A1A2527B136CF00AA9F17 /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A1A2427B136CF00AA9F17 /* SelectTimeVC.swift */; };
+		494A1A2727B1375800AA9F17 /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A1A2627B1375800AA9F17 /* SettingsTableVC.swift */; };
 		494B80E727A7199D00BD8DA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B80E627A7199D00BD8DA6 /* AppDelegate.swift */; };
 		494B80E927A7199D00BD8DA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B80E827A7199D00BD8DA6 /* SceneDelegate.swift */; };
 		494B80EE27A7199D00BD8DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494B80EC27A7199D00BD8DA6 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494A1A2427B136CF00AA9F17 /* SelectTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
+		494A1A2627B1375800AA9F17 /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		494B80E327A7199D00BD8DA6 /* FindNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494B80E627A7199D00BD8DA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494B80E827A7199D00BD8DA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				49FDF46227A85B2600BB7D59 /* GameVC.swift */,
+				494A1A2427B136CF00AA9F17 /* SelectTimeVC.swift */,
+				494A1A2627B1375800AA9F17 /* SettingsTableVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -161,6 +167,8 @@
 				49FDF46327A85B2600BB7D59 /* GameVC.swift in Sources */,
 				494B80E927A7199D00BD8DA6 /* SceneDelegate.swift in Sources */,
 				49FDF46727A8656400BB7D59 /* Game.swift in Sources */,
+				494A1A2727B1375800AA9F17 /* SettingsTableVC.swift in Sources */,
+				494A1A2527B136CF00AA9F17 /* SelectTimeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

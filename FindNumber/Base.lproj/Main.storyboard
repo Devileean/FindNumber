@@ -370,14 +370,48 @@
         <!--Время игры-->
         <scene sceneID="cGq-2D-CrN">
             <objects>
-                <viewController id="RZd-i3-QkE" sceneMemberID="viewController">
+                <viewController id="RZd-i3-QkE" customClass="SelectTimeVC" customModule="FindNumber" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nx1-Xk-svr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C8f-tb-hpl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeCell" textLabel="Nt9-0o-zy3" style="IBUITableViewCellStyleDefault" id="nup-qd-BSp">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nup-qd-BSp" id="Mv0-eE-OgO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nt9-0o-zy3">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tLv-E1-zDa"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="tLv-E1-zDa" firstAttribute="trailing" secondItem="C8f-tb-hpl" secondAttribute="trailing" id="9yL-ow-ePF"/>
+                            <constraint firstItem="C8f-tb-hpl" firstAttribute="leading" secondItem="tLv-E1-zDa" secondAttribute="leading" id="C1g-8H-tOj"/>
+                            <constraint firstItem="tLv-E1-zDa" firstAttribute="bottom" secondItem="C8f-tb-hpl" secondAttribute="bottom" id="bxc-qN-eij"/>
+                            <constraint firstItem="C8f-tb-hpl" firstAttribute="top" secondItem="tLv-E1-zDa" secondAttribute="top" id="gqC-YP-AN6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Время игры" id="enS-B9-VOO"/>
+                    <connections>
+                        <outlet property="tableView" destination="C8f-tb-hpl" id="wzz-XW-ZTv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHg-mp-WeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -386,7 +420,7 @@
         <!--Настройки-->
         <scene sceneID="WFO-hL-mYr">
             <objects>
-                <tableViewController id="hEd-Gk-3Bp" sceneMemberID="viewController">
+                <tableViewController id="hEd-Gk-3Bp" customClass="SettingsTableVC" customModule="FindNumber" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ync-47-f3P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,12 +482,13 @@
                                                 <constraint firstItem="iQk-mm-Yzf" firstAttribute="centerY" secondItem="tgL-GH-mbv" secondAttribute="centerY" id="RRS-wF-bJf"/>
                                                 <constraint firstItem="avT-dB-NXY" firstAttribute="centerY" secondItem="tgL-GH-mbv" secondAttribute="centerY" id="cZG-ND-3pL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="iQk-mm-Yzf" secondAttribute="trailing" constant="5" id="jWp-DW-5yA"/>
+                                                <constraint firstItem="iQk-mm-Yzf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="avT-dB-NXY" secondAttribute="trailing" constant="8" symbolic="YES" id="jxf-pU-epa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <connections>
-                                            <segue destination="RZd-i3-QkE" kind="show" id="vSt-4f-WMc"/>
+                                            <segue destination="RZd-i3-QkE" kind="show" identifier="selectTimeVC" id="vSt-4f-WMc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="fTg-AT-LyO">
@@ -534,6 +569,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
