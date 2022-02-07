@@ -14,6 +14,7 @@ class SettingsTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
     }
     
@@ -30,6 +31,14 @@ class SettingsTableVC: UITableViewController {
         timeGameLabel.text = "\(Settings.shared.currentSettings.timeForGame) сек"
         switchTimer.isOn = Settings.shared.currentSettings.timeState
     }
+    
+    
+    @IBAction func resetSettings(_ sender: Any) {
+        Settings.shared.resetSettings()
+        loadSettings()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "selectTimeVC" :

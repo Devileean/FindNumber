@@ -52,11 +52,12 @@ class Game {
     private var timer: Timer? //также нужна для запуска таймера (её запустим в функции setupGame)
     private var updateTimer:((StatusGame, Int) -> Void) // (6)
     
-    init(countItems: Int, time: Int, updateTimer:@escaping (_ status: StatusGame, _ seeconds: Int) -> Void) { // (3)
+    init(countItems: Int, updateTimer:@escaping (_ status: StatusGame, _ seeconds: Int) -> Void) { // (3)
         self.countItems = countItems
-        self.secondsGame = time // (3)
+        self.timeForGame = Settings.shared.currentSettings.timeForGame // (10)
+        self.secondsGame = self.timeForGame // (3)
         self.updateTimer = updateTimer //(6)
-        self.timeForGame = time // (10)
+        
         setupGame()
     }
     
@@ -68,14 +69,16 @@ class Game {
             let item = Item(title: String(digits.removeFirst()))
             items.append(item)
         }
- 
+        
         nextItem = items.shuffled().first // (1) для рандомного создания цифр
         
         updateTimer(status, secondsGame) // (7)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (_) in // делаем weak self чтобы небыло утечек памяти
-            self?.secondsGame -= 1
-        })
+        if Settings.shared.currentSettings.timeState{
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (_) in // делаем weak self чтобы небыло утечек памяти
+                self?.secondsGame -= 1
+            })
+        }
     }
     
     func newGame(){
@@ -97,13 +100,13 @@ class Game {
             status = .win
         }
     }
-    private func stopGame() { // а инитить будем в stausGame
+    func stopGame() { // а инитить будем в stausGame
         timer?.invalidate()
     }
 }
 
 extension Int {  //создаём для более лучшего восприятия таймера
-
+    
     func secondToString() -> String {
         let minutes = self / 60
         let seconds = self % 60
@@ -111,5 +114,5 @@ extension Int {  //создаём для более лучшего воспри�
         return String(format: "%d:%02d", minutes, seconds)
         
     }
-
+    
 }

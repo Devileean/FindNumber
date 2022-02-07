@@ -8,7 +8,7 @@
 import UIKit
 
 class GameVC: UIViewController {
-
+    
     @IBOutlet var buttons: [UIButton]! //создаем IBOutlet collections(чтобы обьеденить туда 16 кнобок)
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var nextDigit: UILabel!
@@ -16,21 +16,26 @@ class GameVC: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     
     
-    lazy var game = Game(countItems: buttons.count, time: 30) { [weak self] (status, time) in
+    lazy var game = Game(countItems: buttons.count) { [weak self] (status, time) in
         guard let self = self else {return}
         self.timerLabel.text = time.secondToString()
         self.updateInfoGame(with: status)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        game.stopGame()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    setupScreen()
-
-    
+        
+        setupScreen()
+        
+        
     }
-
+    
     @IBAction func pressButton(_ sender: UIButton) {
         
         guard let buttonIndex = buttons.firstIndex(of: sender) else {return}
@@ -68,7 +73,7 @@ class GameVC: UIViewController {
                     self?.game.items[index].isError = false // self с ? т.к. weak и  self становиться опциональным
                 }
             }
-        
+            
         }
         nextDigit.text = game.nextItem?.title
         
@@ -76,7 +81,7 @@ class GameVC: UIViewController {
     }
     
     private func updateInfoGame(with status: StatusGame) {//для проверки статуса игры
-    
+        
         switch status {
         case .start:
             statusLabel.text = "Игра началась"
@@ -90,6 +95,6 @@ class GameVC: UIViewController {
             statusLabel.text = "Вы проиграли"
             statusLabel.textColor = .red
             newGameButton.isHidden = false
-    }
+        }
     }
 }

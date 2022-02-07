@@ -19,6 +19,7 @@ class SelectTimeVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         //tableView.reloadData() //чтобы обновлять ячеки
+  
     }
 
 }
@@ -34,6 +35,8 @@ extension SelectTimeVC: UITableViewDataSource {
         // cell.textLabel?.text = "section - \(indexPath.section) row - \(indexPath.row)" (1)
         
         cell.textLabel?.text = String(data[indexPath.row])
+        cell.textLabel?.textColor = .systemYellow
+        
         return cell
     }
     
