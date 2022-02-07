@@ -445,6 +445,9 @@
                                                     <rect key="frame" x="343" y="12" width="51" height="31"/>
                                                     <color key="onTintColor" systemColor="systemPurpleColor"/>
                                                     <color key="thumbTintColor" systemColor="systemYellowColor"/>
+                                                    <connections>
+                                                        <action selector="changeTimerState:" destination="hEd-Gk-3Bp" eventType="valueChanged" id="zdS-HT-6i0"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -523,6 +526,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Настройки" id="0hz-lR-XFi"/>
+                    <connections>
+                        <outlet property="switchTimer" destination="nZJ-GT-NnE" id="65i-sQ-xI2"/>
+                        <outlet property="timeGameLabel" destination="iQk-mm-Yzf" id="w2g-1B-yO2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDc-Td-ZFI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
