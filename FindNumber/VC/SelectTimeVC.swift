@@ -18,17 +18,14 @@ class SelectTimeVC: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        //tableView.reloadData() //чтобы обновлять ячеки
     }
 
 }
 extension SelectTimeVC: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    } (1)
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { //кол-во строк секций
-//        if section == 0 {
-//            return 5
-//        } (1)
+
         return data.count
     }
     
@@ -45,4 +42,11 @@ extension SelectTimeVC: UITableViewDataSource {
 
 extension SelectTimeVC: UITableViewDelegate {
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+       
+        Settings.shared.currentSettings.timeForGame = data[indexPath.row]
+        navigationController?.popViewController(animated: true)
+    }
 }
