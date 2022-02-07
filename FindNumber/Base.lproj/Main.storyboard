@@ -367,25 +367,121 @@
             </objects>
             <point key="canvasLocation" x="1339.1304347826087" y="77.678571428571431"/>
         </scene>
+        <!--Время игры-->
+        <scene sceneID="cGq-2D-CrN">
+            <objects>
+                <viewController id="RZd-i3-QkE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nx1-Xk-svr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tLv-E1-zDa"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Время игры" id="enS-B9-VOO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHg-mp-WeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="-1369"/>
+        </scene>
         <!--Настройки-->
         <scene sceneID="WFO-hL-mYr">
             <objects>
                 <tableViewController id="hEd-Gk-3Bp" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ync-47-f3P">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ync-47-f3P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="izT-HY-2nD">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izT-HY-2nD" id="lYW-OA-4fQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="NKl-hK-0s9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="izT-HY-2nD">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izT-HY-2nD" id="lYW-OA-4fQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Таймер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9w-Ko-msh">
+                                                    <rect key="frame" x="20" y="15.5" width="69" height="24"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                                    <color key="textColor" systemColor="systemYellowColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZJ-GT-NnE">
+                                                    <rect key="frame" x="343" y="12" width="51" height="31"/>
+                                                    <color key="onTintColor" systemColor="systemPurpleColor"/>
+                                                    <color key="thumbTintColor" systemColor="systemYellowColor"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nZJ-GT-NnE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o9w-Ko-msh" secondAttribute="trailing" constant="8" symbolic="YES" id="Gem-VP-voB"/>
+                                                <constraint firstItem="o9w-Ko-msh" firstAttribute="centerY" secondItem="lYW-OA-4fQ" secondAttribute="centerY" id="Hpa-uZ-y20"/>
+                                                <constraint firstItem="nZJ-GT-NnE" firstAttribute="centerY" secondItem="lYW-OA-4fQ" secondAttribute="centerY" id="gam-VO-YqC"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nZJ-GT-NnE" secondAttribute="trailing" constant="2" id="kQn-25-Zd1"/>
+                                                <constraint firstItem="o9w-Ko-msh" firstAttribute="leading" secondItem="lYW-OA-4fQ" secondAttribute="leadingMargin" id="pvV-xm-OSO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="55" id="2Xa-XW-wNN">
+                                        <rect key="frame" x="0.0" y="99.5" width="414" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Xa-XW-wNN" id="tgL-GH-mbv">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время игры" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avT-dB-NXY">
+                                                    <rect key="frame" x="20" y="15.5" width="107" height="24"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                                    <color key="textColor" systemColor="systemYellowColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 сек." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQk-mm-Yzf">
+                                                    <rect key="frame" x="308.5" y="15.5" width="64" height="24"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                                    <color key="textColor" systemColor="systemPinkColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="avT-dB-NXY" firstAttribute="leading" secondItem="tgL-GH-mbv" secondAttribute="leadingMargin" id="Lag-mA-xcq"/>
+                                                <constraint firstItem="iQk-mm-Yzf" firstAttribute="centerY" secondItem="tgL-GH-mbv" secondAttribute="centerY" id="RRS-wF-bJf"/>
+                                                <constraint firstItem="avT-dB-NXY" firstAttribute="centerY" secondItem="tgL-GH-mbv" secondAttribute="centerY" id="cZG-ND-3pL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iQk-mm-Yzf" secondAttribute="trailing" constant="5" id="jWp-DW-5yA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <connections>
+                                            <segue destination="RZd-i3-QkE" kind="show" id="vSt-4f-WMc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="fTg-AT-LyO">
+                                        <rect key="frame" x="0.0" y="154.5" width="414" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fTg-AT-LyO" id="Xc4-Yq-TrU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oq0-Cd-w9R">
+                                                    <rect key="frame" x="62.5" y="6.5" width="289" height="42"/>
+                                                    <color key="tintColor" systemColor="systemGreenColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Настройки по умолчанию">
+                                                        <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Oq0-Cd-w9R" firstAttribute="centerY" secondItem="Xc4-Yq-TrU" secondAttribute="centerY" id="RzC-WO-9tx"/>
+                                                <constraint firstItem="Oq0-Cd-w9R" firstAttribute="centerX" secondItem="Xc4-Yq-TrU" secondAttribute="centerX" id="vyf-XD-sro"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="hEd-Gk-3Bp" id="vEX-DG-5VJ"/>
                             <outlet property="delegate" destination="hEd-Gk-3Bp" id="0tp-Qw-EGM"/>
@@ -423,7 +519,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                             <color key="textColor" systemColor="systemYellowColor"/>
                         </textAttributes>
                     </navigationBar>
@@ -438,11 +534,17 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
