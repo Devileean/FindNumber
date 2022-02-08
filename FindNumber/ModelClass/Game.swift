@@ -17,7 +17,7 @@ enum StatusGame{
 class Game {
     
     struct Item{
-        var title: String
+        var title:    String
         var isFound = false
         var isError = false
     }
@@ -32,6 +32,15 @@ class Game {
     var status:StatusGame = .start {
         didSet {
             if status != .start {
+                if status == .win {
+                    let newRecord = timeForGame - secondsGame // новый рекорд
+                    
+                    let record = UserDefaults.standard.integer(forKey: KeysUserDefaults.recordGame) //старый рекорд
+                    
+                    if record == 0 || newRecord < record {
+                        UserDefaults.standard.setValue(newRecord, forKey: KeysUserDefaults.recordGame)
+                    }
+                }
                 stopGame()
                 
             }
@@ -53,7 +62,7 @@ class Game {
     private var updateTimer:((StatusGame, Int) -> Void) // (6)
     
     init(countItems: Int, updateTimer:@escaping (_ status: StatusGame, _ seeconds: Int) -> Void) { // (3)
-        self.countItems = countItems
+        self.countItems  = countItems
         self.timeForGame = Settings.shared.currentSettings.timeForGame // (10)
         self.secondsGame = self.timeForGame // (3)
         self.updateTimer = updateTimer //(6)
