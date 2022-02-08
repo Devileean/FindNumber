@@ -15,6 +15,7 @@
 		494B80EE27A7199D00BD8DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494B80EC27A7199D00BD8DA6 /* Main.storyboard */; };
 		494B80F027A7199E00BD8DA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494B80EF27A7199E00BD8DA6 /* Assets.xcassets */; };
 		494B80F327A7199E00BD8DA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494B80F127A7199E00BD8DA6 /* LaunchScreen.storyboard */; };
+		499B6AD927B2A8FC0002CE42 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499B6AD827B2A8FC0002CE42 /* RecordVC.swift */; };
 		49FDF46327A85B2600BB7D59 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FDF46227A85B2600BB7D59 /* GameVC.swift */; };
 		49FDF46727A8656400BB7D59 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FDF46627A8656400BB7D59 /* Game.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		494B80EF27A7199E00BD8DA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		494B80F227A7199E00BD8DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		494B80F427A7199E00BD8DA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		499B6AD827B2A8FC0002CE42 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		49FDF46227A85B2600BB7D59 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		49FDF46627A8656400BB7D59 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				49FDF46227A85B2600BB7D59 /* GameVC.swift */,
 				494A1A2427B136CF00AA9F17 /* SelectTimeVC.swift */,
 				494A1A2627B1375800AA9F17 /* SettingsTableVC.swift */,
+				499B6AD827B2A8FC0002CE42 /* RecordVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				494B80E727A7199D00BD8DA6 /* AppDelegate.swift in Sources */,
+				499B6AD927B2A8FC0002CE42 /* RecordVC.swift in Sources */,
 				49FDF46327A85B2600BB7D59 /* GameVC.swift in Sources */,
 				494B80E927A7199D00BD8DA6 /* SceneDelegate.swift in Sources */,
 				49FDF46727A8656400BB7D59 /* Game.swift in Sources */,

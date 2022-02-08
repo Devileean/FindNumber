@@ -49,7 +49,7 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="BOt-fi-q7C" kind="presentation" id="x68-oE-oLa"/>
+                                            <segue destination="fzU-Ns-Tyq" kind="presentation" modalPresentationStyle="fullScreen" id="x68-oE-oLa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -361,6 +361,7 @@
                         <outletCollection property="buttons" destination="kHh-6U-mfp" collectionClass="NSMutableArray" id="Bva-ac-skg"/>
                         <outletCollection property="buttons" destination="ld9-wJ-IsF" collectionClass="NSMutableArray" id="vAr-du-xgL"/>
                         <outletCollection property="buttons" destination="lBj-PX-abM" collectionClass="NSMutableArray" id="bau-nD-eiK"/>
+                        <segue destination="fzU-Ns-Tyq" kind="presentation" identifier="recordVC" modalPresentationStyle="fullScreen" id="sF0-eP-hBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHa-bz-Wdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -543,14 +544,14 @@
         <!--Рекорд-->
         <scene sceneID="i7T-0U-v2K">
             <objects>
-                <viewController id="BOt-fi-q7C" sceneMemberID="viewController">
+                <viewController id="BOt-fi-q7C" customClass="RecordVC" customModule="FindNumber" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovI-08-Pit">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-Ym-Qpk">
-                                <rect key="frame" x="186" y="393.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="174.5" y="458.5" width="65" height="33"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -562,11 +563,21 @@
                             <constraint firstItem="Icy-Ym-Qpk" firstAttribute="centerX" secondItem="Dgk-xm-OFl" secondAttribute="centerX" id="zQM-6k-It4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Рекорд" id="T09-Jd-Htm"/>
+                    <navigationItem key="navigationItem" title="Рекорд" id="T09-Jd-Htm">
+                        <barButtonItem key="leftBarButtonItem" title="Выход" id="QyG-Ci-d8u">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                            <connections>
+                                <action selector="closeVC:" destination="BOt-fi-q7C" id="h5x-IN-sWz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recordLabel" destination="Icy-Ym-Qpk" id="vuD-9l-8YT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eea-Ag-lRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="-594"/>
+            <point key="canvasLocation" x="1405.7971014492755" y="-594.64285714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Se-sX-uvv">
@@ -591,7 +602,28 @@
             </objects>
             <point key="canvasLocation" x="-436.23188405797106" y="77.678571428571431"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dcU-id-pfY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fzU-Ns-Tyq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kxl-PS-it4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BOt-fi-q7C" kind="relationship" relationship="rootViewController" id="ua4-sd-1Qu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jEJ-H9-Thy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495.6521739130435" y="-594.64285714285711"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sF0-eP-hBS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
