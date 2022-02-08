@@ -49,7 +49,7 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="BOt-fi-q7C" kind="show" id="x68-oE-oLa"/>
+                                            <segue destination="BOt-fi-q7C" kind="presentation" id="x68-oE-oLa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -545,10 +545,22 @@
             <objects>
                 <viewController id="BOt-fi-q7C" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovI-08-Pit">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icy-Ym-Qpk">
+                                <rect key="frame" x="186" y="393.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Dgk-xm-OFl"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="Icy-Ym-Qpk" firstAttribute="centerY" secondItem="Dgk-xm-OFl" secondAttribute="centerY" id="thT-lx-1XO"/>
+                            <constraint firstItem="Icy-Ym-Qpk" firstAttribute="centerX" secondItem="Dgk-xm-OFl" secondAttribute="centerX" id="zQM-6k-It4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Рекорд" id="T09-Jd-Htm"/>
                 </viewController>

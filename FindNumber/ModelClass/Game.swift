@@ -29,6 +29,7 @@ class Game {
     
     var nextItem: Item? // (1)
     
+    var isNewRecord = false
     var status:StatusGame = .start {
         didSet {
             if status != .start {
@@ -39,6 +40,7 @@ class Game {
                     
                     if record == 0 || newRecord < record {
                         UserDefaults.standard.setValue(newRecord, forKey: KeysUserDefaults.recordGame)
+                        isNewRecord = true
                     }
                 }
                 stopGame()
@@ -72,6 +74,7 @@ class Game {
     
     //создадим функцию для создания items
     private func setupGame() {
+        isNewRecord = false
         var digits = data.shuffled() //чтобы перемешивать массив(c помощью shuffled)
         items.removeAll()
         while items.count < countItems {
